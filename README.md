@@ -8,7 +8,11 @@ https://developer.android.com/studio/install.html
 
 ## przydatne klawisze
 
-##
+- Alt + Enter  - utworzenie metody w activity
+
+- Ctrl + Alt + V - ekstrakcja zaznaczenie w zmienna lokalna
+ 
+## Layouts
 
 - 'match_parent'/'wrap_content'
 
@@ -20,3 +24,22 @@ https://developer.android.com/studio/install.html
 
 - 'gravity: center_vertical' - wysrodkowanie pola na srodku obszaru
 
+
+## Zdarzenia - java
+
+- findViewById(id) - metoda pozwalajaca dostac sie do elementu ktory nas interesuje, np. 'R.id.textView' - resource id o nazwie textView
+
+- tworzenie stylow: Refaktor-> Extract -> Style i wybieramy atrybuty dodawane do stylow
+
+## Obsluga obrotu ekranu
+
+- onSaveInstanceState
+
+- onRestoreInstanceState
+
+
+## Dodawanie layoutow dedykowanych do rozmiaru ekranu
+
+Widok Design layoutu, pierwsza ikonka na gorze z lista rozwijana:
+
+-> Create Landscape Variation
