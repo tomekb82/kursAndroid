@@ -4,20 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="calcluator.android.tb.pl.calculator.CalculatorActivity">
 
     <TextView
-        android:text="0"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|end"
         android:id="@+id/textView"
-        android:layout_above="@+id/tableLayout"
-        android:layout_alignParentTop="true" />
+        style="@style/DisplayStyle" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -53,7 +44,7 @@
                 android:text="CE"
                 android:id="@+id/button4"
                 android:layout_column="3"
-                style="@style/KeyStyle" />
+                style="@style/KeyStyle.Operation" />
         </TableRow>
 
         <TableRow
@@ -82,7 +73,7 @@
                 android:text="C"
                 android:id="@+id/button8"
                 android:layout_column="3"
-                style="@style/KeyStyle" />
+                style="@style/KeyStyle.Operation" />
         </TableRow>
 
         <TableRow
@@ -111,7 +102,7 @@
                 android:text="+"
                 android:id="@+id/button12"
                 android:layout_column="3"
-                style="@style/KeyStyle" />
+                style="@style/KeyStyle.Operation" />
         </TableRow>
 
         <TableRow
@@ -140,7 +131,7 @@
                 android:text="-"
                 android:id="@+id/button16"
                 android:layout_column="3"
-                style="@style/KeyStyle" />
+                style="@style/KeyStyle.Operation" />
         </TableRow>
     </TableLayout>
 
