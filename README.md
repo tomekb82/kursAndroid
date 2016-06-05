@@ -11,7 +11,13 @@ https://developer.android.com/studio/install.html
 - Alt + Enter  - utworzenie metody w activity
 
 - Ctrl + Alt + V - ekstrakcja zaznaczenie w zmienna lokalna
+
+Ctrl + Alt + M
  
+Ctrl + Alt + C
+
+Ctrl + Alt + F
+
 ## Layouts
 
 - 'match_parent'/'wrap_content'
@@ -43,3 +49,42 @@ https://developer.android.com/studio/install.html
 Widok Design layoutu, pierwsza ikonka na gorze z lista rozwijana:
 
 -> Create Landscape Variation
+
+## Stylowanie
+
+- zmiany w edytorze tekstowym
+
+- dodajemy 'android:background = "@color/display__background", nastepnie Alt+Enter oraz 'Create color value resource display_background'
+
+- zmiana koloru czcionki: 'android:texColor="@android:color/white" '
+zamiast #FFFFFF
+
+- zmiana rozmiaru czcionki (w SP): 'android:textSize="50sp"'
+
+- DP/DPI - rozmiar elementu, SP - dla rozmiaru czcionki
+
+- tylko jedna linia dla wartosci: 'android:singleLine="true"'
+
+- padding: zmiana odstepu od krawedzi
+
+- zmiana domyslnych odstepow - przez usuniecie domyslnych paddingow dodanych w layoucie
+
+- zmiana koloru naglowka (w pliku colors.xml) PrimaryColor, PrimaryColorDark
+
+
+- stylowanie buttonow ( w pliku styles.xml): dodajemy parenta dla naszego, istniejacego stylu na 'parent = "Base.Widget.AppCompat.Button.Borderless" '
+
+- zmiana koloru buttonow: 'android:background'
+
+- dodanie selektorow np.zmiana selectora dla buttonow przy wcisnieciu dla atrybuti 'android:background', przykladowo:
+    
+    <item name="android:background">@drawable/button_selector</item>
+   
+- selektor przelaczy w zaleznosci od tego co zostanie wcisniete (np.'android:state_pressed="true"')    
+
+- efekt 'ripple' (rozchodzenia sie fali, dostepny tylko dla nowych wersji androida)- w tym celu nalezy utworzyc selektor ladowny tylko dla konkretnej wersji systemu -> dodajemy katalog 'drawable' z kwalifikatorem 'Version' na ktorym bedziemy go odpalali - wtedy nasz obiekt bedzie ladowany od konkretnej wesji SO.
+
+- efekt ripple - dodany w Material Design, jak jeden z tamtych gadzetow
+
+- podstyle - tworzenie podstyli poprzez kopiowanie istniejacych selektorow oraz ich modyfikacje
+ 
