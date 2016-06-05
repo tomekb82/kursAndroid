@@ -8,15 +8,41 @@ import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
 
+    public static final String DISPLAY_KEY = "display";
+    public static final String ACCUMULATOR_KEY = "accumulator";
+    public static final String OPERATION_KEY = "operation";
     private String display = "0";
     private double accumulator = 0.0;
     private Operation currentOperation = Operation.NONE;
+    private TextView displayTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+
+        displayTextView = (TextView) findViewById(R.id.textView);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(DISPLAY_KEY, display);
+        outState.putDouble(ACCUMULATOR_KEY, accumulator);
+        outState.putString(OPERATION_KEY, currentOperation.name());
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        display = savedInstanceState.getString(DISPLAY_KEY, "0");
+        accumulator = savedInstanceState.getDouble(ACCUMULATOR_KEY);
+        currentOperation = Operation.valueOf(savedInstanceState.getString(OPERATION_KEY));
+        updateDisplay();
+    }
+
+
 
     /**
      * Ustawia na wyświetlaczu wybrany przycisk
@@ -25,10 +51,7 @@ public class CalculatorActivity extends AppCompatActivity {
     public void keyClicked(View view) {
 
         Button button = (Button) view;
-
         String key =  button.getText().toString();
-        TextView displayTextView = (TextView) findViewById(R.id.textView);
-        displayTextView.setText(displayTextView.getText().toString() + key);
 
         switch(key){
             case "0":
@@ -62,6 +85,10 @@ public class CalculatorActivity extends AppCompatActivity {
                 clearAll();
                 break;
         }
+        updateDisplay();
+    }
+
+    private void updateDisplay() {
         displayTextView.setText(display);
     }
 
@@ -107,7 +134,7 @@ public class CalculatorActivity extends AppCompatActivity {
             display = String.format("%s", result);
         }
     }
-    
+
     private void calculateOperation(String key) {
         currentOperation = Operation.operationFromKey(key);
         accumulator = Double.parseDouble(display);
