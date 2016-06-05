@@ -34,28 +34,26 @@
             <Button
                 android:text="1"
                 android:id="@+id/button"
-                android:layout_column="0" />
+                android:layout_column="0"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="2"
                 android:id="@+id/button2"
-                android:layout_column="1" />
+                android:layout_column="1"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="3"
                 android:id="@+id/button3"
-                android:layout_column="2" />
+                android:layout_column="2"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="CE"
                 android:id="@+id/button4"
-                android:layout_column="3" />
+                android:layout_column="3"
+                style="@style/KeyStyle" />
         </TableRow>
 
         <TableRow
@@ -65,28 +63,26 @@
             <Button
                 android:text="4"
                 android:id="@+id/button5"
-                android:layout_column="0" />
+                android:layout_column="0"
+                style="@style/KeyStyle"/>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="5"
                 android:id="@+id/button6"
-                android:layout_column="1" />
+                android:layout_column="1"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="6"
                 android:id="@+id/button7"
-                android:layout_column="2" />
+                android:layout_column="2"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="C"
                 android:id="@+id/button8"
-                android:layout_column="3" />
+                android:layout_column="3"
+                style="@style/KeyStyle" />
         </TableRow>
 
         <TableRow
@@ -96,28 +92,26 @@
             <Button
                 android:text="7"
                 android:id="@+id/button9"
-                android:layout_column="0" />
+                android:layout_column="0"
+                style="@style/KeyStyle"/>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="8"
                 android:id="@+id/button10"
-                android:layout_column="1" />
+                android:layout_column="1"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="9"
                 android:id="@+id/button11"
-                android:layout_column="2" />
+                android:layout_column="2"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="+"
                 android:id="@+id/button12"
-                android:layout_column="3" />
+                android:layout_column="3"
+                style="@style/KeyStyle" />
         </TableRow>
 
         <TableRow
@@ -127,28 +121,26 @@
             <Button
                 android:text="."
                 android:id="@+id/button13"
-                android:layout_column="0" />
+                android:layout_column="0"
+                style="@style/KeyStyle"/>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="0"
                 android:id="@+id/button14"
-                android:layout_column="1" />
+                android:layout_column="1"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="="
                 android:id="@+id/button15"
-                android:layout_column="2" />
+                android:layout_column="2"
+                style="@style/KeyStyle" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="-"
                 android:id="@+id/button16"
-                android:layout_column="3" />
+                android:layout_column="3"
+                style="@style/KeyStyle" />
         </TableRow>
     </TableLayout>
 
