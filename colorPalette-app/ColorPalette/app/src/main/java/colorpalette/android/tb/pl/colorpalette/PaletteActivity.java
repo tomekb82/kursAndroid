@@ -7,18 +7,37 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class PaletteActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = PaletteActivity.class.getSimpleName();
+    @BindView(R.id.redSeekBar)
+    SeekBar redSeekBar;
+    @BindView(R.id.greenSeekBar)
+    SeekBar greenSeekBar;
+    @BindView(R.id.blueSeekBar)
+    SeekBar blueSeekBar;
+    @BindView(R.id.generateButton)
+    Button generateButton;
+    @BindView(R.id.saveButton)
+    Button saveButton;
+    @BindView(R.id.colorLinearLayout)
+    LinearLayout colorLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_palette);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -91,7 +110,7 @@ public class PaletteActivity extends AppCompatActivity {
         if (id == R.id.action_add) {
             addColor();
             return true;
-        }else if (id == R.id.action_clear) {
+        } else if (id == R.id.action_clear) {
             return true;
         }
 
