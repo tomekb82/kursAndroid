@@ -1,5 +1,6 @@
 package colorpalette.android.tb.pl.colorpalette;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -11,11 +12,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
+import java.util.Random;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ColorActivity extends AppCompatActivity implements  View.OnClickListener{
+public class ColorActivity extends AppCompatActivity /*implements  View.OnClickListener*/ {
 
     private static final String LOG_TAG = ColorActivity.class.getSimpleName();
     @BindView(R.id.redSeekBar)
@@ -30,7 +33,16 @@ public class ColorActivity extends AppCompatActivity implements  View.OnClickLis
     Button saveButton;
     @BindView(R.id.colorLinearLayout)
     LinearLayout colorLinearLayout;
+
+
     private ActionBar actionBar;
+
+    private int red;
+    private int green;
+    private int blue;
+
+    private Random random = new Random();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +52,8 @@ public class ColorActivity extends AppCompatActivity implements  View.OnClickLis
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        generateButton.setOnClickListener(this);
-        saveButton.setOnClickListener(this);
+        //generateButton.setOnClickListener(this);
+        //saveButton.setOnClickListener(this);
 
         Log.d(LOG_TAG, "onCreate");
     }
@@ -87,7 +99,7 @@ public class ColorActivity extends AppCompatActivity implements  View.OnClickLis
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
 
         switch(v.getId()){
@@ -96,15 +108,39 @@ public class ColorActivity extends AppCompatActivity implements  View.OnClickLis
             case R.id.saveButton:
                 break;
         }
+    }*/
+
+    //@OnClick(R.id.generateButton)
+    public void generate() {
+
+        red = random.nextInt(256);
+        green = random.nextInt(256);
+        blue = random.nextInt(256);
+
+        int color = Color.rgb(red, green, blue);
+
+        Log.d(LOG_TAG, String.valueOf(red));
+        Log.d(LOG_TAG, String.valueOf(green));
+        Log.d(LOG_TAG, String.valueOf(blue));
+        Log.d(LOG_TAG, String.valueOf(color));
+
+        colorLinearLayout.setBackgroundColor(color);
+
+
     }
 
-    @OnClick(R.id.generateButton)
-    public void generate(){
-
+    //@OnClick(R.id.saveButton)
+    public void save() {
     }
 
-    @OnClick(R.id.saveButton)
-    public void save(){
-
+    @OnClick({R.id.generateButton, R.id.saveButton})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.generateButton:
+                generate();
+                break;
+            case R.id.saveButton:
+                break;
+        }
     }
 }
