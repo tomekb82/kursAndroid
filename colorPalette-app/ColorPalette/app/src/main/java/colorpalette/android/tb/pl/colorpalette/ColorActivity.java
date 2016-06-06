@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ColorActivity extends AppCompatActivity implements  View.OnClickListener{
 
@@ -95,5 +96,15 @@ public class ColorActivity extends AppCompatActivity implements  View.OnClickLis
             case R.id.saveButton:
                 break;
         }
+    }
+
+    @OnClick(R.id.generateButton)
+    public void generate(){
+
+    }
+
+    @OnClick(R.id.saveButton)
+    public void save(){
+
     }
 }
