@@ -17,7 +17,7 @@ import android.widget.SeekBar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PaletteActivity extends AppCompatActivity {
+public class PaletteActivity extends AppCompatActivity implements  View.OnClickListener{
 
     public static final String LOG_TAG = PaletteActivity.class.getSimpleName();
     @BindView(R.id.redSeekBar)
@@ -115,5 +115,10 @@ public class PaletteActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }
