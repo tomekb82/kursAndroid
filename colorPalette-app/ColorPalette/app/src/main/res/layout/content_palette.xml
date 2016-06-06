@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/colorLinearLayout"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,43 +16,38 @@
 
     <TextView
         android:text="@string/red"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        style="@style/LabelStyle" />
 
     <SeekBar
         android:id="@+id/redSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        style="@style/ColorSeekbarStyle" />
 
     <TextView
         android:text="@string/green"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        style="@style/LabelStyle" />
 
     <SeekBar
         android:id="@+id/greenSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        style="@style/ColorSeekbarStyle" />
 
     <TextView
         android:text="@string/blue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        style="@style/LabelStyle" />
 
     <SeekBar
         android:id="@+id/blueSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        style="@style/ColorSeekbarStyle" />
 
     <Button
         android:id="@+id/generateButton"
         android:text="@string/generate"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="64dp" />
 
     <Button
         android:id="@+id/saveButton"
         android:text="@string/save"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="64dp" />
 </LinearLayout>
