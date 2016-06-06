@@ -26,10 +26,14 @@ public class PaletteActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                Intent intent = new Intent(PaletteActivity.this, ColorActivity.class);
-                startActivity(intent);
+                addColor();
             }
         });
+    }
+
+    private void addColor() {
+        Intent intent = new Intent(PaletteActivity.this, ColorActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -47,7 +51,10 @@ public class PaletteActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_add) {
+            addColor();
+            return true;
+        }else if (id == R.id.action_clear) {
             return true;
         }
 
