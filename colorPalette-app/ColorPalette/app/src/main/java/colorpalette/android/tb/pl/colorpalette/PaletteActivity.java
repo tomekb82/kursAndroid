@@ -32,6 +32,8 @@ public class PaletteActivity extends AppCompatActivity {
                 addColor();
             }
         });
+
+        Log.d(LOG_TAG, "onCreate");
     }
 
     @Override
