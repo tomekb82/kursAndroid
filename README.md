@@ -99,7 +99,13 @@ zamiast #FFFFFF
 
 -- przejscie do drugiego activity
 
+
+
+
 - Empty Activity (jako drugie w projekcie): ColorActivity 
+
+
+
 
 
 ### Przejscia miedzy roznymi activity
@@ -107,6 +113,8 @@ zamiast #FFFFFF
 - startActivity(ActivityZ.this, ActivityDo.class)
 
 - obiekt Intent (intencja) przekazana do startActivity()
+
+
 
 ### Dodawanie akcji
 
@@ -141,6 +149,15 @@ ze nie trzeba szukac obslugi w innych klasach
 
 
 
+### Obsluga przycisku Up (przejscie w gore)
+
+
+- przejscie w gore: NavUtils.navigateUpFromSameTask(this)
+
+- musimy tylko okreslic miejsce przejscia w pliku AndroidManifest.xml
+przez 'android:parentActivityName=".PaletteActivity"'  -> dostepna tylko dla wersji 5.x  lub dodajemy meta-data dla starszych wersji
+
+    <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".PaletteActivity"/>
 ## Floating Action Button
 
 mozliwosc przechodzenia miedzy activity
