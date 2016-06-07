@@ -22,6 +22,9 @@ import butterknife.OnClick;
 public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener /*implements  View.OnClickListener*/ {
 
     private static final String LOG_TAG = ColorActivity.class.getSimpleName();
+    public static final String RED = "red";
+    public static final String GREEN = "green";
+    public static final String BLUE = "blue";
 
     @BindView(R.id.redLabel)
     TextView redLabel;
@@ -188,5 +191,22 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
+    }
+
+    /* Zapamietywanie wartosci miedzy uruchomieniami */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(RED, red);
+        outState.putInt(GREEN, green);
+        outState.putInt(BLUE, blue);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        red = savedInstanceState.getInt(RED);
+        green = savedInstanceState.getInt(GREEN);
+        blue = savedInstanceState.getInt(BLUE);
     }
 }
