@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -18,13 +19,20 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ColorActivity extends AppCompatActivity /*implements  View.OnClickListener*/ {
+public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener /*implements  View.OnClickListener*/ {
 
     private static final String LOG_TAG = ColorActivity.class.getSimpleName();
+
+    @BindView(R.id.redLabel)
+    TextView redLabel;
     @BindView(R.id.redSeekBar)
     SeekBar redSeekBar;
+    @BindView(R.id.greenLabel)
+    TextView greenLabel;
     @BindView(R.id.greenSeekBar)
     SeekBar greenSeekBar;
+    @BindView(R.id.blueLabel)
+    TextView blueLabel;
     @BindView(R.id.blueSeekBar)
     SeekBar blueSeekBar;
     @BindView(R.id.generateButton)
@@ -33,7 +41,6 @@ public class ColorActivity extends AppCompatActivity /*implements  View.OnClickL
     Button saveButton;
     @BindView(R.id.colorLinearLayout)
     LinearLayout colorLinearLayout;
-
 
     private ActionBar actionBar;
 
@@ -49,11 +56,14 @@ public class ColorActivity extends AppCompatActivity /*implements  View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color);
         ButterKnife.bind(this);
+//        ButterKnife.setDebug(true);
+
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //generateButton.setOnClickListener(this);
-        //saveButton.setOnClickListener(this);
+        redSeekBar.setOnSeekBarChangeListener(this);
+        greenSeekBar.setOnSeekBarChangeListener(this);
+        blueSeekBar.setOnSeekBarChangeListener(this);
 
         Log.d(LOG_TAG, "onCreate");
     }
@@ -99,6 +109,17 @@ public class ColorActivity extends AppCompatActivity /*implements  View.OnClickL
         return super.onOptionsItemSelected(item);
     }
 
+    private void updateSeekBars() {
+        redSeekBar.setProgress(red);
+        greenSeekBar.setProgress(green);
+        blueSeekBar.setProgress(blue);
+    }
+
+    private void updateBackgroundColor() {
+        int color = Color.rgb(red, green, blue);
+        colorLinearLayout.setBackgroundColor(color);
+    }
+
     /*@Override
     public void onClick(View v) {
 
@@ -110,30 +131,28 @@ public class ColorActivity extends AppCompatActivity /*implements  View.OnClickL
         }
     }*/
 
-    //@OnClick(R.id.generateButton)
+    @OnClick(R.id.generateButton)
     public void generate() {
 
         red = random.nextInt(256);
         green = random.nextInt(256);
         blue = random.nextInt(256);
 
-        int color = Color.rgb(red, green, blue);
+        updateSeekBars();
 
         Log.d(LOG_TAG, String.valueOf(red));
         Log.d(LOG_TAG, String.valueOf(green));
         Log.d(LOG_TAG, String.valueOf(blue));
-        Log.d(LOG_TAG, String.valueOf(color));
 
-        colorLinearLayout.setBackgroundColor(color);
-
-
+        updateBackgroundColor();
     }
 
-    //@OnClick(R.id.saveButton)
+    @OnClick(R.id.saveButton)
     public void save() {
     }
 
-    @OnClick({R.id.generateButton, R.id.saveButton})
+
+   /* @OnClick({R.id.generateButton, R.id.saveButton})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.generateButton:
@@ -142,5 +161,32 @@ public class ColorActivity extends AppCompatActivity /*implements  View.OnClickL
             case R.id.saveButton:
                 break;
         }
+    }*/
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        switch (seekBar.getId()) {
+            case R.id.redSeekBar:
+                red = progress;
+                break;
+            case R.id.greenSeekBar:
+                green = progress;
+                break;
+            case R.id.blueSeekBar:
+                blue = progress;
+                break;
+        }
+        updateBackgroundColor();
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }

@@ -13,6 +13,7 @@
 
 
     <TextView
+        android:id="@+id/redLabel"
         android:text="@string/red"
         style="@style/LabelStyle" />
 
@@ -21,6 +22,7 @@
         style="@style/ColorSeekbarStyle" />
 
     <TextView
+        android:id="@+id/greenLabel"
         android:text="@string/green"
         style="@style/LabelStyle" />
 
@@ -29,6 +31,7 @@
         style="@style/ColorSeekbarStyle" />
 
     <TextView
+        android:id="@+id/blueLabel"
         android:text="@string/blue"
         style="@style/LabelStyle" />
 
