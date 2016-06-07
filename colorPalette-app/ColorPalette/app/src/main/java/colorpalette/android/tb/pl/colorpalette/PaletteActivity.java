@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,7 +20,13 @@ public class PaletteActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = PaletteActivity.class.getSimpleName();
     public static final int REQUEST_CODE_CREATE = 1;
+
+    @BindView(R.id.colorsRecyclerView)
+    RecyclerView colorsRecyclerView;
+
     private FloatingActionButton fab;
+
+    private ColorAdatper colorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,10 @@ public class PaletteActivity extends AppCompatActivity {
                 addColor();
             }
         });
+
+        colorAdapter = new ColorAdatper(getLayoutInflater());
+        colorsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        colorsRecyclerView.setAdapter(colorAdapter);
 
         Log.d(LOG_TAG, "onCreate");
     }
@@ -108,10 +117,12 @@ public class PaletteActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == REQUEST_CODE_CREATE && resultCode == RESULT_OK){
+        if (requestCode == REQUEST_CODE_CREATE && resultCode == RESULT_OK) {
             String colorInhex = data.getStringExtra(ColorActivity.COLOR_IN_HEX);
             Snackbar.make(fab, getString(R.string.new_color_created, colorInhex), Snackbar.LENGTH_LONG)
                     .show();
+
+            colorAdapter.add(colorInhex);
         }
     }
 }
