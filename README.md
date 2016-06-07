@@ -139,7 +139,43 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 - obsluga odebranych danych w onActivityResult()
 
 
+### Wyświetlanie listy: RecyclerView  + Adapter
 
+- nastepca ListView, Gallery, GridView laczycy cechy poprzednikow
+
+- RecyclerView dostepny od wersji android 5.0, jako zewnetrzna biblioteka (trzeba osobno zainstalowac przez OpenModuleSettings -> recyclerview-v7)
+
+- Rec - zajmuje sie tylko zarzadzanie widokami, 
+
+- Adapter - okresla jakie dane i w jaki sposob maja zostac wyswietlone(wyglad)
+
+-- extends RecyclerView.Adapter
+
+-- klasa adaptera jest parametryzowana klasa Holdera
+
+-- zawiera 3 metody:
+
+--- onCreateViewHolder() - tworzy widok i opakowuje w Holder
+
+--- onBindViewHolder() - odpowiada za przypisanie danych do konkretnego wiersza, laczy widok z danymi, dla wierszy wyświetla dane 
+
+--- getItemCount() - zwraca liczbe elmentów wewnetrzych adaptera - ilosc elementow listy 
+
+
+-- Holder - klasa przechowujaca informacje o poszczegolnym wierszu
+
+-- LayoutInflater - klasa potrafiaca przetworzyc widoki w strukture obiektow
+
+-- nalezy do adaptera przekazac LayoutInflater, na przyklad w konstruktorze klasy adaptera
+
+- LayoutManager - okresla kolejnosc w jaki maja zostac wyswietlone
+
+
+-
+
+
+
+### Gest Swipe - usuwanie elementow z listy
 
 ### Dodawanie akcji
 
