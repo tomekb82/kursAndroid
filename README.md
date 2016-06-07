@@ -170,12 +170,15 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 
 - LayoutManager - okresla kolejnosc w jaki maja zostac wyswietlone
 
-
--
-
-
-
 ### Gest Swipe - usuwanie elementow z listy
+
+- ItemTouchHelper.SimpleCallback()
+
+- definiujemy olgike w metodzie onSwipe()
+
+- podpinamy pod obiekt ItemTouchHelper callbacka oraz RecyclerView
+
+
 
 ### Dodawanie akcji
 
