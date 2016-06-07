@@ -3,20 +3,17 @@
 ## instalacja android sdk
 https://developer.android.com/studio/install.html
 
-## uruchomienie android sdk
-
-
-## przydatne klawisze
+## przydatne klawisze Intelij Idea (Android Studio)
 
 - Alt + Enter  - utworzenie metody w activity
 
 - Ctrl + Alt + V - ekstrakcja zaznaczenie w zmienna lokalna
 
-Ctrl + Alt + M
+- Ctrl + Alt + M - ekstrakcja metody
  
-Ctrl + Alt + C
+- Ctrl + Alt + C - ekstrakcja stalej
 
-Ctrl + Alt + F
+- Ctrl + Alt + F - ekstrakcja pola klasy
 
 ## Layouts
 
@@ -99,6 +96,13 @@ zamiast #FFFFFF
 
 -- przejscie do drugiego activity
 
+-- LinearLayout zamiast RelativeLayout oraz opcja 'android:orientation="vertical"' - bo chcemy aby elementy byly jeden pod drugim
+
+
+-- etyketa: TextView
+
+-- SeekBar
+--- ustawienie wartosci maksymalnej: w stylach podajemy "android:max"
 
 
 
@@ -158,12 +162,49 @@ ze nie trzeba szukac obslugi w innych klasach
 przez 'android:parentActivityName=".PaletteActivity"'  -> dostepna tylko dla wersji 5.x  lub dodajemy meta-data dla starszych wersji
 
     <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".PaletteActivity"/>
+
 ## Floating Action Button
 
 mozliwosc przechodzenia miedzy activity
 
 
 ## Tłumaczenia
+
+- stringi przenosimy do values - aby umozliwic tlumaczenie
+
+- dodanie tlumaczenia: z pliku strings.xml -> Open Editor po prawej stronie okn
+a -> Kula ziemska
+
+
+## ButterKnife
+
+- zamiast tworzenia pola i przypisania z uzyciem findViewById() mozna uzyc gotowej biblioteki ButterKnife
+
+- dodawanie biblioteki: Open Module Settings -> dependencies w module app -> Library -> butterknife
+
+- generuje kod na podstawie adnotacji, ktory musielibysmy napisac recznie, usunac 'private' na wersje 'public'
+
+- adnotacje @BindView
+
+- konieczne uruchomienie butterKnife: ButterKnife.bind(this);i
+
+
+## Instalacja Pluginu ButterKnife w AndroidStudio
+
+Settings -> Browse repositories: Andreoid ButterKnife Zelezy
+
+
+- uwaga: istotne dodanie samego butterknife'a oraz compilera butterknife
+
+- (Alt + Insert) na layout activity -> generate ButterKnife injections  - pojawia sie okno z mozliwoscia dodania mapowania
+
+- ButterKnife.setDebug(true) - przydatne przy debugu jak cos nie dziala
+
+## Obsluga/implementacja onClick
+
+- dodajemy ze klasa Activity implements View.onClickListener
+
+- przez ButterKnife: @OnClick(R.id.generateButton)
 
 ## Shared Preferences
 
