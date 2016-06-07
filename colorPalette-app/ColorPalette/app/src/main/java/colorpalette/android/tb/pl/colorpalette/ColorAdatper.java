@@ -49,6 +49,10 @@ public class ColorAdatper extends RecyclerView.Adapter<ColorViewHolder>{
         colors.add(color);
         notifyItemInserted(colors.size() - 1);
     }
+
+    public void remove(int position) {
+        colors.remove(position);
+    }
 }
 
 class ColorViewHolder extends RecyclerView.ViewHolder{
