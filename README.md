@@ -98,6 +98,12 @@ zamiast #FFFFFF
 
 -- LinearLayout zamiast RelativeLayout oraz opcja 'android:orientation="vertical"' - bo chcemy aby elementy byly jeden pod drugim
 
+-- parametryzacja stringow: do metody getString() podajemy resource string oraz parametry, przykladowo:
+
+    getString(R.string.new_color_created, colorInhex)
+
+w string.xml:
+    <string name="new_color_created">New color created: %s</string>    
 
 -- etyketa: TextView
 
@@ -110,16 +116,28 @@ zamiast #FFFFFF
 
 -- Zapamietywanie wartosci miedzy uruchomieniami: onSaveInstanceState(), onRestoreInstanceState
 
-### Przesylanie danych miedzy Activity
-
-
-
-
 ### Przejscia miedzy roznymi activity
 
 - startActivity(ActivityZ.this, ActivityDo.class)
 
 - obiekt Intent (intencja) przekazana do startActivity()
+
+
+### Przesylanie danych miedzy Activity
+
+- startActivityForResult)( - mowi ze chcemy przekazywac dane w Activity
+- setResult() - ustawiamy wartosci
+- onActivityResult() - odbieramy dane przekazane z Activity
+
+- startActivityForResult(), setResult(): metody pozwalajace przesylac dane w jedna i druga strone
+
+- przekazywane dane dodajemy w obiekcie Intent, ktory przekazujemy jako parametr do setResult()
+
+- finish() - oznacza zakonczenie Activity, odpowiada akcji WSTECZ,
+uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult()
+
+- obsluga odebranych danych w onActivityResult()
+
 
 
 
