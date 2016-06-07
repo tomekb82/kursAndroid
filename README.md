@@ -108,6 +108,9 @@ zamiast #FFFFFF
 
 - Empty Activity (jako drugie w projekcie): ColorActivity 
 
+-- Zapamietywanie wartosci miedzy uruchomieniami: onSaveInstanceState(), onRestoreInstanceState
+
+### Przesylanie danych miedzy Activity
 
 
 
