@@ -322,3 +322,36 @@ dane zostaja po wylaczeniu i wlaczeniu aplikacji
 
 ### JSON
 
+JSONArray
+
+
+### Pallete
+
+- biblioteka Palette: dodajemy jako dependency (jedna z domyslnych)
+
+- pozwala na podstawie koloru generowac na przyklad kolor tekstu dobierajac
+kontrast w taki sposob aby byl dobrze widoczny (np. na tle obrazka/zdjecia)
+
+-  analizuje kolory i odpowiednio zmienia
+
+- new Palette.Swatch(color, 1).getTitleTextColor()
+
+### Undo
+
+- dodany jako akcja w SnakBarze (dodano listener i obsluge)
+
+
+### ScrollView
+
+- umozliwia przeskorolowanie ekranu jezeli bedzie taka potrzeba,
+jezeli cos sie nie zmiesci
+
+- opakowujemy LinearLayout przez ScrollView 
+
+- ScrollView moze miec tylko JEDNEGO POTOMKA
+
+- wewnetrzny LinearLayout powinien miec ustawiony 'android:layout_height="wrap_content"' aby ScrollView sam decydowal co i jak scrollowac
+
+
+
+- 
