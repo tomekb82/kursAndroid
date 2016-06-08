@@ -7,4 +7,5 @@
     <string name="red">Czerwony</string>
     <string name="save">Zapisz</string>
     <string name="new_color_created">Utworzony nowy kolor: %s</string>
+    <string name="undo">Cofnij</string>
 </resources>

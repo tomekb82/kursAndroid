@@ -140,10 +140,18 @@ public class PaletteActivity extends AppCompatActivity implements ColorAdatper.C
         if(resultCode == RESULT_OK) {
             if (requestCode == REQUEST_CODE_CREATE) {
                 String colorInhex = data.getStringExtra(ColorActivity.COLOR_IN_HEX);
+                final int position = colorAdapter.add(colorInhex);
                 Snackbar.make(fab, getString(R.string.new_color_created, colorInhex), Snackbar.LENGTH_LONG)
+                        .setAction(R.string.undo, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                colorAdapter.remove(position);
+                                colorAdapter.notifyItemRemoved(position);
+                            }
+                        })
                         .show();
 
-                colorAdapter.add(colorInhex);
+
             } else if (requestCode == REQUEST_CODE_EDIT) {
                 String colorInhex = data.getStringExtra(ColorActivity.COLOR_IN_HEX);
 
