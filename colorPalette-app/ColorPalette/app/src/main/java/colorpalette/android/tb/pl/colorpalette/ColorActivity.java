@@ -84,6 +84,7 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
             updateBackgroundColor();
 
             generateButton.setVisibility(View.GONE);
+            actionBar.setTitle(R.string.edit_color);
         }
 
         Log.d(LOG_TAG, "onCreate");
@@ -145,7 +146,8 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         blueLabel.setTextColor(textColorFromColor);
     }
 
-    /*@Override
+    /*Tradycyjna metoda
+    @Override
     public void onClick(View v) {
 
         switch(v.getId()){
@@ -158,17 +160,11 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
 
     @OnClick(R.id.generateButton)
     public void generate() {
-
         red = random.nextInt(256);
         green = random.nextInt(256);
         blue = random.nextInt(256);
 
         updateSeekBars();
-
-        Log.d(LOG_TAG, String.valueOf(red));
-        Log.d(LOG_TAG, String.valueOf(green));
-        Log.d(LOG_TAG, String.valueOf(blue));
-
         updateBackgroundColor();
     }
 
