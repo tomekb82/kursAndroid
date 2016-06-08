@@ -22,6 +22,7 @@ import butterknife.OnClick;
 
 public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener /*implements  View.OnClickListener*/ {
 
+    public static final String OLD_COLOR_KEY = "old_color";
     private static final String LOG_TAG = ColorActivity.class.getSimpleName();
     public static final String RED = "red";
     public static final String GREEN = "green";
@@ -54,6 +55,7 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
     private int blue;
 
     private Random random = new Random();
+    private String oldColor;
 
 
     @Override
@@ -69,6 +71,20 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         redSeekBar.setOnSeekBarChangeListener(this);
         greenSeekBar.setOnSeekBarChangeListener(this);
         blueSeekBar.setOnSeekBarChangeListener(this);
+
+        Intent intent = getIntent();
+        oldColor = intent.getStringExtra(OLD_COLOR_KEY);
+        if(oldColor != null){
+            int color = Color.parseColor(oldColor);
+            red = Color.red(color);
+            green = Color.green(color);
+            blue = Color.blue(color);
+
+            updateSeekBars();
+            updateBackgroundColor();
+
+            generateButton.setVisibility(View.GONE);
+        }
 
         Log.d(LOG_TAG, "onCreate");
     }
@@ -158,6 +174,9 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
 
         Intent data = new Intent();
         data.putExtra(COLOR_IN_HEX, String.format("#%02X%02X%02X",red,green,blue));
+        if(oldColor != null){
+            data.putExtra(OLD_COLOR_KEY, oldColor);
+        }
         setResult(RESULT_OK, data);
         finish();
 

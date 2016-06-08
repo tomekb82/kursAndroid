@@ -17,10 +17,11 @@ import android.view.View;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PaletteActivity extends AppCompatActivity {
+public class PaletteActivity extends AppCompatActivity implements ColorAdatper.ColorClickedListener {
 
     public static final String LOG_TAG = PaletteActivity.class.getSimpleName();
     public static final int REQUEST_CODE_CREATE = 1;
+    private static final int REQUEST_CODE_EDIT = 2;
 
     @BindView(R.id.colorsRecyclerView)
     RecyclerView colorsRecyclerView;
@@ -46,6 +47,7 @@ public class PaletteActivity extends AppCompatActivity {
         });
 
         colorAdapter = new ColorAdatper(getLayoutInflater());
+        colorAdapter.setColorClickedListener(this);
         colorsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         colorsRecyclerView.setAdapter(colorAdapter);
 
@@ -133,12 +135,31 @@ public class PaletteActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE_CREATE && resultCode == RESULT_OK) {
-            String colorInhex = data.getStringExtra(ColorActivity.COLOR_IN_HEX);
-            Snackbar.make(fab, getString(R.string.new_color_created, colorInhex), Snackbar.LENGTH_LONG)
-                    .show();
+        if(resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_CODE_CREATE) {
+                String colorInhex = data.getStringExtra(ColorActivity.COLOR_IN_HEX);
+                Snackbar.make(fab, getString(R.string.new_color_created, colorInhex), Snackbar.LENGTH_LONG)
+                        .show();
 
-            colorAdapter.add(colorInhex);
+                colorAdapter.add(colorInhex);
+            } else if (requestCode == REQUEST_CODE_EDIT) {
+                String colorInhex = data.getStringExtra(ColorActivity.COLOR_IN_HEX);
+
+                String oldColor = data.getStringExtra(ColorActivity.OLD_COLOR_KEY);
+
+                colorAdapter.replace(oldColor, colorInhex);
+
+
+            }
         }
+    }
+
+    @Override
+    public void onColorClicked(String colorInHex) {
+        Intent intent = new Intent(this, ColorActivity.class);
+        intent.putExtra(ColorActivity.OLD_COLOR_KEY, colorInHex);
+        startActivityForResult(intent, REQUEST_CODE_EDIT);
+
+
     }
 }
