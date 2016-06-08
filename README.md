@@ -170,6 +170,10 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 
 - LayoutManager - okresla kolejnosc w jaki maja zostac wyswietlone
 
+
+- Aby poinformowac ze dane sie zmienily trzeba uzyc metody notifyXXX()
+
+
 ### Gest Swipe - usuwanie elementow z listy
 
 - ItemTouchHelper.SimpleCallback()
@@ -283,7 +287,38 @@ Settings -> Browse repositories: Andreoid ButterKnife Zelezy
 
 ## Shared Preferences
 
-przechowywanie danych, persytowanie danych po kazdym restarcie aplikacji,
+- przechowywanie danych, persytowanie danych po kazdym restarcie aplikacji,
 dane zostaja po wylaczeniu i wlaczeniu aplikacji
 
- 
+- pozwala przechowywac dane miedzy uruchomieniami
+
+- zapis i czyszczenie w shared preferences
+
+- dodajemy jako parametr w konstruktorze Adaptera
+
+- sharedPreferences - to plik xml przechowywany w naszym katalogu aplikacji,
+
+- dodawanie domyslnego managera: PreferenceManager.getDefaultSharedPreferences()
+
+- zapis:
+
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.putString("colors", jsonArray.toString());
+    editor.apply();
+
+- odczyt: sharedPreferences.getString(COLORS_KEY, "[]")
+
+- czyszczenie: sharedPreferences.edit().clear().apply();
+
+### Terminal 
+
+- zakladka terminal
+
+- ograniczone uprawnienia na urzadeniu, w emulatorze pelne uprawnienia root'a
+
+- 'adb shell' - powloka systemu Linux  
+
+- katalog aplikacji: '/data/data'
+
+### JSON
+
