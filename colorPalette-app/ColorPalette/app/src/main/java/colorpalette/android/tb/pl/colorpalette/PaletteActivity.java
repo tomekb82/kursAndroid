@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -169,7 +170,9 @@ public class PaletteActivity extends AppCompatActivity implements ColorAdatper.C
         Intent intent = new Intent(this, ColorActivity.class);
         intent.putExtra(ColorActivity.OLD_COLOR_KEY, colorInHex);
         startActivityForResult(intent, REQUEST_CODE_EDIT);
+    }
 
-
+    public static int getTextColorFromColor(int color){
+        return new Palette.Swatch(color, 1).getTitleTextColor();
     }
 }

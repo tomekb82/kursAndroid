@@ -138,7 +138,11 @@ public class ColorActivity extends AppCompatActivity implements SeekBar.OnSeekBa
 
     private void updateBackgroundColor() {
         int color = Color.rgb(red, green, blue);
+        int textColorFromColor = PaletteActivity.getTextColorFromColor(color);
         colorLinearLayout.setBackgroundColor(color);
+        redLabel.setTextColor(textColorFromColor);
+        greenLabel.setTextColor(textColorFromColor);
+        blueLabel.setTextColor(textColorFromColor);
     }
 
     /*@Override
