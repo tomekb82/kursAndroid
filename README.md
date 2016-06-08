@@ -179,6 +179,21 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 - podpinamy pod obiekt ItemTouchHelper callbacka oraz RecyclerView
 
 
+### Edycja z RecyclerView
+
+- nie ma informacji ktory element został klikniety w RecyclerView, trzeba to samemu obsluzyc - przypinamy onClickListener na poszczegolnych wierszach, na poziomie ViewHoldera (implements OnClickListener)
+
+- podpinamy onClickListenera do ViewHoldera w kontruktorze, podpinamy rowniez adapter oraz w onClick z holderze wolamy funkcje obslugi w adapterze
+
+- adapter moze dzieki temu zareagowac na klikniecie na okreslonej pozycji
+
+- podsumowujac: w viewHolderze obslugujemy klikniecie na widoku, klikniecie powoduje wywolanie metody na adapterze z wybrana pozycja, metoda w adapterze sprawdza czy mamy podpiety listener, jezeli tak do wywolujemy odpowiednia metode z wartoscia kliknietj pozycji
+
+- pozniej tylko startujemy activity_: tworzymy intent i startActivityForResult()
+
+- w odbiorczym activity pobieramy wartosc przez getIntent()
+
+ 
 
 ### Dodawanie akcji
 
