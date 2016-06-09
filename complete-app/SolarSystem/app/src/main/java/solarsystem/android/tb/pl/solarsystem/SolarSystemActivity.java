@@ -79,7 +79,10 @@ public class SolarSystemActivity extends AppCompatActivity
 
         if (id == R.id.nav_planets) {
 
-            SolarObjectsFragment fragment = new SolarObjectsFragment();
+            SolarObjectsFragment fragment = SolarObjectsFragment.newInstance(new SolarObject[]{
+                    new SolarObject("Earth"),
+                    new SolarObject("Mars")
+            });
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.containterLayout, fragment);
