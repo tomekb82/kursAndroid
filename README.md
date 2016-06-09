@@ -1,9 +1,9 @@
-# kursAndroid
+# Kurs Android
 
-## instalacja android sdk
+## Instalacja android sdk
 https://developer.android.com/studio/install.html
 
-## przydatne klawisze Intelij Idea (Android Studio)
+## Intellij IDEA (Android Studio) - przydatne klawisze
 
 - Alt + Enter  - utworzenie metody w activity
 
@@ -14,6 +14,13 @@ https://developer.android.com/studio/install.html
 - Ctrl + Alt + C - ekstrakcja stalej
 
 - Ctrl + Alt + F - ekstrakcja pola klasy
+
+- Ctrl + Alt+J  lub Ctrl+Alt+T  - generacja automatyczna kodu (pętle, try)
+
+- Ctrl + F6 - refaktoryzacja kodu
+
+- F6 - move, np. przeniesienie pól z jednej klasy do drugiej
+
 
 ## Layouts
 
@@ -86,7 +93,7 @@ zamiast #FFFFFF
 - podstyle - tworzenie podstyli poprzez kopiowanie istniejacych selektorow oraz ich modyfikacje
 
 
-## Collot Pallete app
+## Collor Pallete app
 
 - Blank/Basic Activity: PaletteActivity
 
@@ -138,7 +145,6 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 
 - obsluga odebranych danych w onActivityResult()
 
-
 ### Wyświetlanie listy: RecyclerView  + Adapter
 
 - nastepca ListView, Gallery, GridView laczycy cechy poprzednikow
@@ -173,7 +179,6 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 
 - Aby poinformowac ze dane sie zmienily trzeba uzyc metody notifyXXX()
 
-
 ### Gest Swipe - usuwanie elementow z listy
 
 - ItemTouchHelper.SimpleCallback()
@@ -181,7 +186,6 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 - definiujemy olgike w metodzie onSwipe()
 
 - podpinamy pod obiekt ItemTouchHelper callbacka oraz RecyclerView
-
 
 ### Edycja z RecyclerView
 
@@ -197,7 +201,6 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 
 - w odbiorczym activity pobieramy wartosc przez getIntent()
 
- 
 
 ### Dodawanie akcji
 
@@ -212,7 +215,6 @@ uzywana jezeli chcemy aby dane od razu zostaly wyslane w po wywolaniu setResult(
 
 - po dodaniu akcji dodajemy ja w onOptionsitemSelected() i zwracamy 'true', 
 ze nie trzeba szukac obslugi w innych klasach
-
 
 ## Cykl zycia activity
 
@@ -231,7 +233,6 @@ ze nie trzeba szukac obslugi w innych klasach
 -- filtrowanie logow po klasie
 
 
-
 ### Obsluga przycisku Up (przejscie w gore)
 
 
@@ -245,7 +246,6 @@ przez 'android:parentActivityName=".PaletteActivity"'  -> dostepna tylko dla wer
 ## Floating Action Button
 
 mozliwosc przechodzenia miedzy activity
-
 
 ## Tłumaczenia
 
