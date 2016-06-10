@@ -112,3 +112,63 @@ zadaniem metody jest stworzenie fragmentu i ustawienie na nim odpowiednich argum
 
 
 ## Odczyt zasobow z ASSETS
+
+- zasoby dostepne wewnatrz aplikacji
+
+- przechowywanie obiektow dostepnych dla aplikacji, ale niezaleznych od konfiguracji (jak grafiki zalezne od rozdzielczosci), zawsze ladownae sa tak samo
+
+- wklejamy zawartosc gotowych assets do katalogu /app/src/main
+
+- odczyt danych/pliku z assets:
+    InputStream inputStream = ctx.getAssets().open(filename);
+
+
+
+## Parsowanie JSON
+
+- pobieranie jsona jako String, parsowanie Stringa na JsonArray, przepisanie JsonArray na nasz obiekt Java:
+
+    String json = loadStringFromAssets(ctx, "solar.json");
+    JSONObject jsonObject = new JSONObject(json);
+    JSONArray jsonArray = jsonObject.getJSONArray(type);
+    SolarObject[] solarObjects = new SolarObject[jsonArray.length()];
+    for(int i=0; i< jsonArray.length(); i++){
+        SolarObject solarObject = new SolarObject(jsonArray.getJSONObject(i));
+        solarObjects[i] = solarObject;
+    }
+
+
+## GridLayoutManager
+
+- siatka obiektow 
+
+- na RecyclerView oparty
+
+- utworzenie managera layoutu dla gdir, podanie jako parametry aktualnego activity oraz liczby kolumn grida(2)
+    objectRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        
+- wykorzystanie ButterKnife w Holderze dla adaptera w celu dobrania sie do wartosci z widoku i aktualizacji danych na nim
+
+
+
+## Karty
+
+- pozwalaja grupowac elementy
+
+- cardview trzeba dodac, jest to zewnetrzna biblioteka
+
+
+## Glide
+
+- asynchroniczne ladowanie obrazkow w widokach
+
+- widoki maja byc szybkie
+
+- dodajemy jako dependencje w projekcie
+
+
+
+
+
+
+
