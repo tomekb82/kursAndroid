@@ -59,7 +59,7 @@ public class SolarSystemActivity extends AppCompatActivity
 
         objectsWithMoons = new SolarObject[planetsWithMoons.size()];
         objectsWithMoons = planetsWithMoons.toArray(objectsWithMoons);
-        
+
         navigationView.setCheckedItem(R.id.nav_planets);
         onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_planets));
 
