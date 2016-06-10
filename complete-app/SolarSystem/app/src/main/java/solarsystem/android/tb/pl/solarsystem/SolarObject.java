@@ -124,4 +124,8 @@ public class SolarObject implements Serializable {
 
         return new String(buffer, "UTF-8");
     }
+
+    public boolean hasMoons() {
+        return moons != null && moons.length > 0;
+    }
 }

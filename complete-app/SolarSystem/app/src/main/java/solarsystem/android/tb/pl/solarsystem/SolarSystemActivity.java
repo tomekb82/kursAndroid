@@ -14,11 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SolarSystemActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private SolarObject[] planets;
     private SolarObject[] others;
+    private SolarObject[] objectsWithMoons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,22 @@ public class SolarSystemActivity extends AppCompatActivity
         planets = SolarObject.loadArrayFromJson(this, "planets");
         others = SolarObject.loadArrayFromJson(this, "others");
 
+        List<SolarObject> planetsWithMoons = new ArrayList<>();
+        for (SolarObject planet : planets) {
+            if(planet.hasMoons()){
+                planetsWithMoons.add(planet);
+            }
+        }
+
+        for (SolarObject other : others) {
+            if(other.hasMoons()){
+                planetsWithMoons.add(other);
+            }
+        }
+
+        objectsWithMoons = new SolarObject[planetsWithMoons.size()];
+        objectsWithMoons = planetsWithMoons.toArray(objectsWithMoons);
+        
         navigationView.setCheckedItem(R.id.nav_planets);
         onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_planets));
 
