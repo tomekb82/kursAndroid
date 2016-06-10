@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +19,17 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SolarObjectsFragment extends Fragment {
-
+public class SolarObjectsFragment extends Fragment implements SolarObjectAdapter.SolarObjectClickedListener {
 
     public static final String OBJECTS_KEY = "objects";
     public static final int GRID_LAYOUT_COLUMNS = 2;
+
     @BindView(R.id.objectRecyclerView)
     RecyclerView objectRecyclerView;
 
     public SolarObjectsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,10 +47,10 @@ public class SolarObjectsFragment extends Fragment {
         SolarObject[] objects = (SolarObject[]) getArguments().getSerializable(OBJECTS_KEY);
 
         objectRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), GRID_LAYOUT_COLUMNS));
-        objectRecyclerView.setAdapter(new SolarObjectAdapter(objects));
+        SolarObjectAdapter adapter = new SolarObjectAdapter(objects);
+        adapter.setSolarObjectClickedListener(this);
 
-
-
+        objectRecyclerView.setAdapter(adapter);
     }
 
     public static SolarObjectsFragment newInstance(SolarObject[] objects) {
@@ -64,4 +64,8 @@ public class SolarObjectsFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void solarObjectClicked(SolarObject solarObject) {
+        Log.d(SolarObjectsFragment.class.getSimpleName(), "Clicked:" + solarObject.getName());
+    }
 }
