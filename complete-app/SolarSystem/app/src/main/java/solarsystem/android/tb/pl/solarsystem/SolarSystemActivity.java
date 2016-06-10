@@ -17,6 +17,9 @@ import android.view.MenuItem;
 public class SolarSystemActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private SolarObject[] planets;
+    private SolarObject[] others;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,10 @@ public class SolarSystemActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        planets = SolarObject.loadArrayFromJson(this, "planets");
+        others = SolarObject.loadArrayFromJson(this, "others");
 
         navigationView.setCheckedItem(R.id.nav_planets);
         onNavigationItemSelected(navigationView.getMenu().findItem(R.id.nav_planets));
@@ -79,23 +86,27 @@ public class SolarSystemActivity extends AppCompatActivity
 
         if (id == R.id.nav_planets) {
 
-            SolarObjectsFragment fragment = SolarObjectsFragment.newInstance(new SolarObject[]{
-                    new SolarObject("Earth"),
-                    new SolarObject("Mars")
-            });
+            SolarObjectsFragment fragment = SolarObjectsFragment.newInstance(planets);
 
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.containterLayout, fragment);
-            fragmentTransaction.commit();
+            replaceFragment(fragment);
 
         } else if (id == R.id.nav_moons) {
 
         } else if (id == R.id.nav_other) {
 
+            SolarObjectsFragment fragment = SolarObjectsFragment.newInstance(others);
+
+            replaceFragment(fragment);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void replaceFragment(SolarObjectsFragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.containterLayout, fragment);
+        fragmentTransaction.commit();
     }
 }
