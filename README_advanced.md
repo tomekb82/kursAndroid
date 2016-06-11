@@ -196,11 +196,15 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 
 - podczas podpinania widoku wyciagamy obiekty, tworzymy adatper oraz ustawiamy na viewPagerze
 
-
-- mozliwosc wyswietlania belki - na ktorym fragmentcie jestesmy
-
 - zaczynamy od stworzenia nowego fragmentu i wewnatarz tego layoutu dodajemy element ViewPager
 
 
-## TabL Layout
+## Tab Layout
 
+- mozliwosc wyswietlania belki - na ktorym fragmentcie jestesmy
+
+- nad ViewPagerem dodajemy TabLayout
+
+- zmiany w ViewPagerze powinny powodowac zmiany w TabLayout: moonsTabLayout.setupWithViewPager(moonsViewPager);
+
+- dodanie tytulu na belce: implementacja metody getPageTitle w adapterze ViewPagera
