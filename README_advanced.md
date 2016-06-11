@@ -229,7 +229,7 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 
 - tworzymy interfejs z dwoma metodami show/hide wolanymi w onAttach/onDetach
 
-- glowne activity implementuje powyzszy interfejs i w metodach ukrywa badz nie TabLayout
+- glowne activity implementuje powyzszy interfejs i w metodach ukrywa badz nie TabLayout ,dodatkowo przekazywany jest ViewPager ktory podpinamy w activity to TabLayoutu
 
 
 
