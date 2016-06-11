@@ -150,6 +150,7 @@ zadaniem metody jest stworzenie fragmentu i ustawienie na nim odpowiednich argum
 - wykorzystanie ButterKnife w Holderze dla adaptera w celu dobrania sie do wartosci z widoku i aktualizacji danych na nim
 
 
+- wagi elementow
 
 ## Karty
 
@@ -166,9 +167,40 @@ zadaniem metody jest stworzenie fragmentu i ustawienie na nim odpowiednich argum
 
 - dodajemy jako dependencje w projekcie
 
+- Glide.with(kontekst).load(sciezka z assets).into(w jakim imageview imiescic obrazek)
 
 
+## Placeholdery
+
+- new drawable resource file : Shape - prosty ksztalt
 
 
+## Obsluga zdarzen
 
+- obsluga klikniecia realizowana na poziomie ViewHoldera ustawiajacego listenera na klikniecie,
+wolana jest metoda adaptera, ktora przekazuje klikniety obiekt dalej
+
+- activity lub fragment moze nasluchiwac na zdarzenie klikniecia na konkretny przycisk aby dowiedziec 
+sie jaki element zostal klikniety - realizuje sie to poprzez deklaracje interfejsu w adapterze oraz seetera ustawianego w activity/fragmencie,
+jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
+
+## ViewPager
+
+- widok pozwalajacy opakowywac widoku lub fragmenty i przelaczy sie miedzy nimi przy uzyciu gestu Swipe
+
+- PagerAdapter rozszerza FragmentStatePagerAdapter - sluzy do przechowywania framgentow, przechowuje stan fragmentow miedzy przelaczeniami
+
+- getChildFragmentManager() - inny niz dla activity, fragmenty maja swojego managera
+
+- utworzenie metody newInstance - przy tworzeniu instancji zapamietujemy obkeity
+
+- podczas podpinania widoku wyciagamy obiekty, tworzymy adatper oraz ustawiamy na viewPagerze
+
+
+- mozliwosc wyswietlania belki - na ktorym fragmentcie jestesmy
+
+- zaczynamy od stworzenia nowego fragmentu i wewnatarz tego layoutu dodajemy element ViewPager
+
+
+## TabL Layout
 
