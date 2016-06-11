@@ -3,6 +3,7 @@ package solarsystem.android.tb.pl.solarsystem;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -112,6 +113,8 @@ public class SolarSystemActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_moons) {
 
+            replaceFragment(MoonsFragment.newInstance(objectsWithMoons));
+
         } else if (id == R.id.nav_other) {
 
             SolarObjectsFragment fragment = SolarObjectsFragment.newInstance(others);
@@ -124,7 +127,7 @@ public class SolarSystemActivity extends AppCompatActivity
         return true;
     }
 
-    private void replaceFragment(SolarObjectsFragment fragment) {
+    private void replaceFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.containterLayout, fragment);
         fragmentTransaction.commit();
