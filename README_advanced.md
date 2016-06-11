@@ -221,4 +221,16 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 
 - zgodne ze standardem google (Material Design) 
 
-- przeniesc TabLayout do glownego activity i ukrywac lub nie w zaleznosci od potrzeb
+- przeniesc TabLayout do glownego activity i ukrywac lub nie w zaleznosci od potrzeb (ponizej Toolbar)
+
+- onAttach() - wolana gdy fragment jest dodawany do activity, do metody przekazywany jest kontekst okreslajacy activity do ktorego fragment zostanie podpiety
+
+- onDetach() - wolana w momencie gdy fragment usuwamy z activity
+
+- tworzymy interfejs z dwoma metodami show/hide wolanymi w onAttach/onDetach
+
+- glowne activity implementuje powyzszy interfejs i w metodach ukrywa badz nie TabLayout
+
+
+
+
