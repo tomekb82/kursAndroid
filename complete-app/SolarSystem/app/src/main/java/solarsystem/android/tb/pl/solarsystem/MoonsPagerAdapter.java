@@ -25,4 +25,9 @@ public class MoonsPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return objectsWithMoons.length;
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return objectsWithMoons[position].getName();
+    }
 }
