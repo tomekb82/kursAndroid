@@ -208,3 +208,17 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 - zmiany w ViewPagerze powinny powodowac zmiany w TabLayout: moonsTabLayout.setupWithViewPager(moonsViewPager);
 
 - dodanie tytulu na belce: implementacja metody getPageTitle w adapterze ViewPagera
+
+- android:background="?attr/colorPrimary"  - ustawienie aktualnej wartosci koloru pod stala colorPrimary
+
+- ustawienia opcji:
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:tabGravity="fill"
+    app:tabMode="scrollable"
+
+
+## Nowe lepsze podejscie do TabLayout
+
+- zgodne ze standardem google (Material Design) 
+
+- przeniesc TabLayout do glownego activity i ukrywac lub nie w zaleznosci od potrzeb
