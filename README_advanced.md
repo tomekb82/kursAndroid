@@ -254,3 +254,40 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 
 - dostosuj ImageView w CoordinatorLayout aby zachodzil na cale okno
 
+## Osadzanie RecyclerView w Activity
+
+
+- wyswietlanie elementow w RecyclerView w pozycji horyzontalnej
+
+-- istotne ze z pozycji horyzontalnej RecyclerView nie wie jaka jest szerokosc
+wiec musimy ja jawnie okreslic np.220dp (item 200dp + marginesy)
+
+- reuzycie istniejacego adaptera do wyswietlania obiektow, ale w innej roli
+
+- ustawienie layout managera na liste horyzontalną:
+    moonsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false));
+
+- obiekty w ScrollView umieszczamy zawsze w LinearLayout
+
+- stylowanie karty obiektow
+
+-- rozszeczenie widoku aby dopasowac obrazek: android:adjustViewBounds="true"
+-- aby caly obrazek znalazl sie w ImageView: android:scaleType="centerInside"
+
+
+## Hack na poprawne dzialanie efektu paralaksy (problem biblioteki)
+
+- problem przy dwoch obiektach scrollowanych, gdzie jeden jest zagniezdzony w drugim, wtedy na tym drugim nie dziala efekt paralasky
+
+- rozwiazanie: na wewnetrznym obiekcie wylaczamy scrollowanie
+    moonsRecyclerView.setNestedScrollingEnabled(false);
+
+
+
+## Obsluga klikniecia na obiekty
+
+- realizowana przez podpiecie listenera do naszego adaptera
+oraz implementacje metody uruchamiajacej inne activity
+
+
+
