@@ -8,6 +8,8 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
@@ -17,7 +19,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,10 @@ public class SolarObjectActivity extends AppCompatActivity {
     TextView objectTextView;
     @BindView(R.id.fab)
     FloatingActionButton fab;
+    @BindView(R.id.moonsLabel)
+    TextView moonsLabel;
+    @BindView(R.id.moonsRecyclerView)
+    RecyclerView moonsRecyclerView;
     private SolarObject solarObject;
 
     @Override
@@ -71,6 +76,15 @@ public class SolarObjectActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(solarObject.getImagePath())
                 .into(objectImageView);
+
+        moonsRecyclerView.setVisibility(solarObject.hasMoons() ? View.VISIBLE : View.GONE);
+        moonsLabel.setVisibility(solarObject.hasMoons() ? View.VISIBLE : View.GONE);
+
+        if(solarObject.hasMoons()){
+            SolarObjectAdapter solarObjectAdapter = new SolarObjectAdapter(solarObject.getMoons());
+            moonsRecyclerView.setAdapter(solarObjectAdapter);
+            moonsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false));
+        }
     }
 
     public static void start(Activity activity, SolarObject solarObject) {
