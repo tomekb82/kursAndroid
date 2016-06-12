@@ -290,4 +290,19 @@ wiec musimy ja jawnie okreslic np.220dp (item 200dp + marginesy)
 oraz implementacje metody uruchamiajacej inne activity
 
 
+## Dodanie Floating Option Button do wyswietlania filmow
+
+- ustawienie ikony: dodajemy VectorAsset
+
+- dodanie obslugi do FAB
+
+- uwaga: CoordinatorLayout potrafi sam zarzadzac widocznoscia elementow na widokach i nalezy samemu, recznie to wylaczyc, aby np. moc ukryc przycisk FAB
+
+-- w tym celu odpinamy nasz widok od CoordinatorLayoutu, wtedy widocznosci nie beda napisywane
+    CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) fab.getLayoutParams();
+    lp.setAnchorId(View.NO_ID);
+
+
+
+##
 
