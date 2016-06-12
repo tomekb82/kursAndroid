@@ -67,5 +67,8 @@ public class SolarObjectsFragment extends Fragment implements SolarObjectAdapter
     @Override
     public void solarObjectClicked(SolarObject solarObject) {
         Log.d(SolarObjectsFragment.class.getSimpleName(), "Clicked:" + solarObject.getName());
+
+        SolarObjectActivity.start(getActivity(), solarObject);
+
     }
 }
