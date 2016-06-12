@@ -252,5 +252,5 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 
 - parsowanie tagow HTML ze Stringa: Html.fromHtml(text)
 
-
+- dostosuj ImageView w CoordinatorLayout aby zachodzil na cale okno
 
