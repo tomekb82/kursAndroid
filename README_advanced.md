@@ -244,5 +244,13 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 
 - startujemy activity we fragmencie przez activity.start();
 
+- CoordinatorLatout - zarzadza roznymi widokami activity jezeli scrollujemy
+
+-- rozszerzenie obrazu na cala szerokosc: android:adjustViewBounds="true"
+
+-- wycentrowanie i przyciecie elementu obrazka: android:scaleType="centerCrop"
+
+- parsowanie tagow HTML ze Stringa: Html.fromHtml(text)
+
 
 
