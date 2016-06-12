@@ -2,6 +2,8 @@ package solarsystem.android.tb.pl.solarsystem;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringDef;
+import android.text.TextUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -129,7 +131,11 @@ public class SolarObject implements Serializable {
         return moons != null && moons.length > 0;
     }
 
-    public  String getImagePath(){
+    public String getImagePath(){
         return String.format("file:///android_asset/%s", getImage());
+    }
+
+    public boolean hasMovie(){
+        return !TextUtils.isEmpty(getVideo());
     }
 }
