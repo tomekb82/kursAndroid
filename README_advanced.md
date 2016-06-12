@@ -304,5 +304,38 @@ oraz implementacje metody uruchamiajacej inne activity
 
 
 
-##
+## Zapisywanie tapety
+
+- przeslaniamy w activity metody: onCreateOptionsMenu oraz onOptionsItemSelected
+
+- usluga WallpaperManager - pozwala zarzadzac tapetami wewnatrz telefonu
+
+- pobieramy tapete z assetow:
+    wallpaperManager.setStream(getAssets().open(image))
+
+- wymagane uprawnienie normalne, w manifescie dodajemy uprawnienie:
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
+## Uprawnienia 
+
+Są 2 typy:
+- 1) normalne - deklaruje się tylko w manifescie
+- 2) niebezpieczne - w trakcie dzialania uzytkownik musi sie zgodzic czy chce cos zrobic
+
+## PODSUMOWANIE
+
+- aplikacja wykorzystuje nawigacje z wykorzystaniem NavigationDrawer
+
+- wyswietla widoki przy uzyciu RecyclerView
+
+- asynchroniczne ladowanie obrazkow z wykorzystaniem biblioteki Glide
+
+- ViewPager do przelaczania widokow 
+
+- wykorzystywane fragmenty - do calej nawigacji zewnetrznej jak i poszczegolnych widokow NavigationDrawera
+
+- dostep do assetow, zmiana obrazkow, parsowanie JSON
+
+- ustawienia video, tapety
 
