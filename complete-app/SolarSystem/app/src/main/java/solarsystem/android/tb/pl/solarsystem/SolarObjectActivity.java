@@ -84,6 +84,7 @@ public class SolarObjectActivity extends AppCompatActivity {
             SolarObjectAdapter solarObjectAdapter = new SolarObjectAdapter(solarObject.getMoons());
             moonsRecyclerView.setAdapter(solarObjectAdapter);
             moonsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false));
+            moonsRecyclerView.setNestedScrollingEnabled(false);
         }
     }
 
