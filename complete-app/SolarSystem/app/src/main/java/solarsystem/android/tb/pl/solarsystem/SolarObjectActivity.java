@@ -23,7 +23,7 @@ import java.io.IOException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SolarObjectActivity extends AppCompatActivity {
+public class SolarObjectActivity extends AppCompatActivity implements SolarObjectAdapter.SolarObjectClickedListener {
 
     public static final String OBJECT_KEY = "object";
     @BindView(R.id.objectImageView)
@@ -81,8 +81,9 @@ public class SolarObjectActivity extends AppCompatActivity {
         moonsLabel.setVisibility(solarObject.hasMoons() ? View.VISIBLE : View.GONE);
 
         if(solarObject.hasMoons()){
-            SolarObjectAdapter solarObjectAdapter = new SolarObjectAdapter(solarObject.getMoons());
-            moonsRecyclerView.setAdapter(solarObjectAdapter);
+            SolarObjectAdapter adapter = new SolarObjectAdapter(solarObject.getMoons());
+            adapter.setSolarObjectClickedListener(this);
+            moonsRecyclerView.setAdapter(adapter);
             moonsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false));
             moonsRecyclerView.setNestedScrollingEnabled(false);
         }
@@ -92,5 +93,10 @@ public class SolarObjectActivity extends AppCompatActivity {
         Intent intent = new Intent(activity, SolarObjectActivity.class);
         intent.putExtra(OBJECT_KEY, solarObject);
         activity.startActivity(intent);
+    }
+
+    @Override
+    public void solarObjectClicked(SolarObject solarObject) {
+        SolarObjectActivity.start(this, solarObject);
     }
 }
