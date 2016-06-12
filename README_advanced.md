@@ -232,5 +232,17 @@ jezeli przycisk zostal klikniety wywolywana jest metoda z adaptera
 - glowne activity implementuje powyzszy interfejs i w metodach ukrywa badz nie TabLayout ,dodatkowo przekazywany jest ViewPager ktory podpinamy w activity to TabLayoutu
 
 
+### Widok Detail
+
+- wykorzytamy CoordinatorLayout oraz NestedScrollView - fajne efekty paralaksy, efekty zanikania pewnych widokow w momencie kiedy scrollujemy
+
+- tworzymy nowe activity: ScrollingActivity
+
+-- wykorzystujemy HierarchicalParent - wskazujemy rodzica w hierarchii dla tego elementu, 
+
+- uruchomienie activity: metoda start, przyjmujaca jako parametr Activity, tworzymy Intent i startujemy activity przez activity.startActivity(intent)
+
+- startujemy activity we fragmencie przez activity.start();
+
 
 
