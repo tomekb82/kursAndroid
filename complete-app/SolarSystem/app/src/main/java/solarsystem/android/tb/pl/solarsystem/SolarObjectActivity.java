@@ -1,6 +1,7 @@
 package solarsystem.android.tb.pl.solarsystem;
 
 import android.app.Activity;
+import android.app.WallpaperManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +17,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -73,7 +76,7 @@ public class SolarObjectActivity extends AppCompatActivity implements SolarObjec
             fab.setVisibility(View.GONE);
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+
         toolbarLayout.setTitle(solarObject.getName());
 
         try {
@@ -122,5 +125,31 @@ public class SolarObjectActivity extends AppCompatActivity implements SolarObjec
     @Override
     public void solarObjectClicked(SolarObject solarObject) {
         SolarObjectActivity.start(this, solarObject);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_solar_object, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_set_as_wallpaper){
+            // Obsługa tapety
+            setAsWallpaper(solarObject.getImage());
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setAsWallpaper(String image) {
+        WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
+        try {
+            wallpaperManager.setStream(getAssets().open(image));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
