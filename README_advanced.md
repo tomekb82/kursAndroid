@@ -339,3 +339,18 @@ Są 2 typy:
 
 - ustawienia video, tapety
 
+
+## Tablety
+
+- jak uzywac fragmentow po to aby pewne fragmenty moc wykorzystywac na roznych urzadzeniach
+
+- na androidzie nie ma funkcjonalnosci umozliwiajacej czy urzadzenie jest tabeletem
+
+- kwalifikatory large i xlarge - aktualnie niewykorzystywane
+
+- aktualnie okresla sie rozroznienie kwalikatorami sw600dp(tablet 7calowy) i sw720dp(tablet 10 calowy)
+
+- fragmenty - wykorzystywanie pewnych wiokow wielorotnie w zaleznosci jakie mamy urzadzenie.
+
+
+- 
